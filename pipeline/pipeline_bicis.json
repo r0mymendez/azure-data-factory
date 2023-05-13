@@ -22,6 +22,34 @@
 					"referenceName": "AzFunctionBicis",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "data",
+				"type": "AzureFunctionActivity",
+				"dependsOn": [
+					{
+						"activity": "Api",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"functionName": "func-basic-blob",
+					"method": "GET"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureFunctionBlob",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []

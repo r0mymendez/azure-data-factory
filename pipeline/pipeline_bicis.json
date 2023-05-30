@@ -47,8 +47,31 @@
 					"method": "GET"
 				},
 				"linkedServiceName": {
-					"referenceName": "AzFunctionBicis",
+					"referenceName": "AzFunctionFilter",
 					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fail1",
+				"type": "Fail",
+				"dependsOn": [
+					{
+						"activity": "create-file",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"message": {
+						"value": "@activity('create-file').output",
+						"type": "Expression"
+					},
+					"errorCode": {
+						"value": "@activity('create-file').output",
+						"type": "Expression"
+					}
 				}
 			}
 		],

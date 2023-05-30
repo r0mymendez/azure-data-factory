@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Api",
+				"name": "create-file",
 				"type": "AzureFunctionActivity",
 				"dependsOn": [],
 				"policy": {
@@ -24,11 +24,11 @@
 				}
 			},
 			{
-				"name": "data",
+				"name": "filter",
 				"type": "AzureFunctionActivity",
 				"dependsOn": [
 					{
-						"activity": "Api",
+						"activity": "create-file",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -47,7 +47,7 @@
 					"method": "GET"
 				},
 				"linkedServiceName": {
-					"referenceName": "AzureFunctionBlob",
+					"referenceName": "AzFunctionBicis",
 					"type": "LinkedServiceReference"
 				}
 			}

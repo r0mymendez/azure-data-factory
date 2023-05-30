@@ -43,7 +43,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"functionName": "func-basic-blob",
+					"functionName": "func-filter",
 					"method": "GET"
 				},
 				"linkedServiceName": {
